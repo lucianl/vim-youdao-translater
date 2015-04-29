@@ -20,7 +20,7 @@ endfunction
 
 
 python << EOF
-import vim,requests,collections,xml.etree.ElementTree as ET
+import vim,urllib2,collections,xml.etree.ElementTree as ET
 
 # -*- coding: utf-8 -*-
 
@@ -30,10 +30,10 @@ ERROR_QUERY = " 有道翻译查询出错!"
 def get_word_info(word):
     if not word:
         return ''
-    r = requests.get("http://dict.youdao.com" + "/fsearch?q=" + word)
-    if r.status_code == 200:
+    r = urllib2.urlopen("http://dict.youdao.com" + "/fsearch?q=" + word)
+    if r.getcode() == 200:
 
-        doc = ET.fromstring(r.content)
+        doc = ET.fromstring(r.read())
         info = collections.defaultdict(list)
 
 
