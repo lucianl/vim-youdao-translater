@@ -16,7 +16,6 @@ vim youdao translater 是一个利用 [有道词典在线版](http://dict.youdao
 
 
 ###  其他
-插件依赖于python 的 Requests， 安装 Requests：`sudo pip install requests`。
 
 添加 `~/.vimrc` 文件：
 
